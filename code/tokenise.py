@@ -1,7 +1,7 @@
 import jieba
-```
+'''
 lcut can result in a list 
-```
+'''
 def tokenise(df, colname=SKU_NAME):
     cuts = {
         'cut_search': lambda s: jieba.lcut_for_search(s),
