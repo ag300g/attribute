@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import jieba
 '''
 lcut can result in a list 
