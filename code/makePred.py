@@ -12,6 +12,15 @@ CLASSIFIERS = [
     KNeighborsClassifier(4)
 ]
 
+CLASSIFIER_NAMES = [
+    # '1V1_LSVC',
+    '1VR_LSVC',
+    'NaiveBayes',
+    'MLPercep',
+    'R_Forest',
+    'KNN'
+]
+
 def makePred(df, unknown_df, colname, known_X, known_y, unknown_X, le, wts):
     classifiers = copy.deepcopy(CLASSIFIERS)
 
