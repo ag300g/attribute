@@ -1,4 +1,17 @@
 # -*- coding: utf-8 -*-
+N_FOLDS = 5
+
+CLASSIFIERS = [
+    # OneVsOneClassifier(LinearSVC()),
+    OneVsRestClassifier(LinearSVC()),
+    MultinomialNB(),
+    MLPClassifier(early_stopping=False, hidden_layer_sizes=(4, 6), max_iter=500, alpha=1e-4,
+                  solver='sgd', verbose=False, tol=1e-4, random_state=1,
+                  learning_rate_init=.1),
+    RandomForestClassifier(),
+    KNeighborsClassifier(4)
+]
+
 def makePred(df, unknown_df, colname, known_X, known_y, unknown_X, le, wts):
     classifiers = copy.deepcopy(CLASSIFIERS)
 
