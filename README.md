@@ -1,4 +1,6 @@
 ### attribute
 > forecast and fill
 
-> random forest
+> supervised learning
+
+> classification
