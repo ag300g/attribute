@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def makePred(df, unknown_df, colname, known_X, known_y, unknown_X, le, wts):
     classifiers = copy.deepcopy(CLASSIFIERS)
 
