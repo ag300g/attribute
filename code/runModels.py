@@ -15,6 +15,23 @@ need costant:
             > PREF_CUT
 """
 
+
+from sklearn import preprocessing
+from sklearn.cross_validation import KFold
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.multiclass import OneVsOneClassifier
+from sklearn.multiclass import OneVsRestClassifier
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neural_network import MLPClassifier
+from sklearn.svm import LinearSVC
+
+from makeDict import *
+from CountVectorizer import *
+from validateForCol import *
+from makePred import *
+
 def runModels(df):
     vocab = makeDict(df)
     vectorizer = CountVectorizer(min_df=1, vocabulary=vocab)  ## min_df和max_df在有参考的字典时没有用
