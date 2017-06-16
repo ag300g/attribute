@@ -1,3 +1,16 @@
+# -*- coding: utf-8 -*-
+'''
+core method
+need method makeDict
+            CountVectorizer
+            validateForCol
+            makePred
+
+need costant MIN_DISTINCT_CAT
+             OMIT_COLS
+             PREF_CUT
+'''
+
 def runModels(df):
     vocab = makeDict(df)
     vectorizer = CountVectorizer(min_df=1, vocabulary=vocab)  ## min_df和max_df在有参考的字典时没有用
