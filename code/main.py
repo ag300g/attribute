@@ -36,6 +36,17 @@ CLASSIFIERS = [
     RandomForestClassifier(),
     KNeighborsClassifier(4)
 ]
+
+# headers to show on screen
+CLASSIFIER_NAMES = [
+    # '1V1_LSVC',
+    '1VR_LSVC',
+    'NaiveBayes',
+    'MLPercep',
+    'R_Forest',
+    'KNN'
+]
+
 '''
 ==================
 main process
