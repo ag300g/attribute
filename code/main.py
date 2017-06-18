@@ -9,6 +9,21 @@ PREF_CUT = 'cut_search'
 SKU_NAME = 'ProductDesc'
 N_FOLDS = 5
 
+# columns to be omitted - common to every file, already filled in
+OMIT_COLS = set([
+    'ITEM_SKU_ID',
+    'ProductDesc',
+    'AFTER_PREFR_AMOUNT',
+    'ITEM_FIRST_CATE_CD',
+    'ITEM_FIRST_CATE_NAME',
+    'ITEM_SECOND_CATE_CD',
+    'ITEM_SECOND_CATE_NAME',
+    'ITEM_THIRD_CATE_CD',
+    'ITEM_THIRD_CATE_NAME',
+    'cut_search',
+    'cut_full',
+    'cut_part'
+])
 '''
 ==================
 main process
