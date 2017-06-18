@@ -24,6 +24,18 @@ OMIT_COLS = set([
     'cut_full',
     'cut_part'
 ])
+
+# classifiers to use for learning
+CLASSIFIERS = [
+    # OneVsOneClassifier(LinearSVC()),
+    OneVsRestClassifier(LinearSVC()),
+    MultinomialNB(),
+    MLPClassifier(early_stopping=False, hidden_layer_sizes=(4, 6), max_iter=500, alpha=1e-4,
+                  solver='sgd', verbose=False, tol=1e-4, random_state=1,
+                  learning_rate_init=.1),
+    RandomForestClassifier(),
+    KNeighborsClassifier(4)
+]
 '''
 ==================
 main process
