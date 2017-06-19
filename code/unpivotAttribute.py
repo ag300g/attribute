@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+import pandas as pd
 def unpivotAttributes(df, maps):
     # add back in the product keys before unpivot
     (skuKey, skuName) = ('ProductKey', 'ProductDesc')
