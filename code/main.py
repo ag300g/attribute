@@ -27,7 +27,6 @@ OMIT_COLS = set([
 
 # classifiers to use for learning
 CLASSIFIERS = [
-    # OneVsOneClassifier(LinearSVC()),
     OneVsRestClassifier(LinearSVC()),
     MultinomialNB(),
     MLPClassifier(early_stopping=False, hidden_layer_sizes=(4, 6), max_iter=500, alpha=1e-4,
@@ -39,7 +38,6 @@ CLASSIFIERS = [
 
 # headers to show on screen
 CLASSIFIER_NAMES = [
-    # '1V1_LSVC',
     '1VR_LSVC',
     'NaiveBayes',
     'MLPercep',
