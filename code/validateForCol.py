@@ -23,6 +23,7 @@ CLASSIFIER_NAMES = [
     'R_Forest',
     'KNN'
 ]
+from sklearn.cross_validation import KFold
 def validateForCol(colname, known_X, known_y):
     kf = KFold(known_X.shape[0], n_folds=N_FOLDS, shuffle=True)
     score_raw = np.zeros((N_FOLDS, len(CLASSIFIERS)))
