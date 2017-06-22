@@ -38,9 +38,11 @@ def makePred(df, unknown_df, colname, known_X, known_y, unknown_X, le, wts):
     # fit each classifier independently
     for i in range(len(classifiers)):
         classifiers[i].fit(known_X, known_y)
-        y = le.inverse_transform(classifiers[i].predict(unknown_X))
+        y = le.inverse_transform(classifiers[i].predict(unknown_X))  # 通过le.inverse_transform可以把y的标签重新变为y的值
 
         # count up votes from different classifiers
+        # if 2 classifier vote for one result then sum the wts of the 2 classifier as the result's weight
+        # if 2 classifier vote for different result then list a new possibility
         for j in range(len(y)):
             if y[j] in predictionsForAll[j]:
                 predictionsForAll[j][y[j]] += wts[i]
