@@ -34,6 +34,8 @@ def makePred(df, unknown_df, colname, known_X, known_y, unknown_X, le, wts):
     for j in range(len(unknown_df)):
         predictionsforOne = {}
         predictionsForAll.append(predictionsforOne)
+        # predictionsForAll is list whose length = unknown_df.shape[0]
+        # the element of predictionsForAll is a dictionary of the prediction result with all possibilities
 
     # fit each classifier independently
     for i in range(len(classifiers)):
