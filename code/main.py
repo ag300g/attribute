@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 ## 所用到的包
 import copy
+
 import jieba
 import numpy as np
 import pandas as pd
@@ -16,6 +17,8 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.svm import LinearSVC
 from tabulate import tabulate
+
+from code.auxiliary import fileManagement as fm
 
 # CONSTANTS
 MIN_COMPLETION = .05
@@ -283,6 +286,15 @@ if __name__ == '__main__':
     # and att.dt='2017-04-01'
     # and sku.item_third_cate_cd = 2676
     # and sku.item_sku_id=att.item_sku_id;
+
+    scenarioSettingsPath = '../settings/settings_fillAttributes.yaml'
+
+    settingsScenario = fm.loadSettingsFromYamlFile(scenarioSettingsPath)
+    main(settingsScenario)
+
+
+
     df = pd.read_table('input.txt', quotechar='\0', dtype={'item_sku_id': str, 'ext_attr_cd': str, 'ext_attr_value_cd': str})
     df.columns = ['ProductKey', 'ProductDesc', 'AttributeKey', 'AttributeDesc', 'AttributeValueKey', 'AttributeValueDesc']
+    settings_cleanAttributes.yaml
     main(df)
