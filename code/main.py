@@ -85,21 +85,6 @@ def main(df):
     writer.save()
 
 
-if __name__ == '__main__':
-    # get scenario if running this module outside of main.py
-    # scenario = settings.getCurrentScenario()
-
-    # 数据来源：
-    # select sku.item_sku_id, sku_name, ext_attr_cd, ext_attr_name, ext_attr_value_cd, ext_attr_value_name from gdm_m03_item_sku_da sku
-    # join
-    # gdm_m03_sku_ext_attr_da att
-    # on sku.dt='2017-04-01'
-    # and att.dt='2017-04-01'
-    # and sku.item_third_cate_cd = 2676
-    # and sku.item_sku_id=att.item_sku_id;
-    df = pd.read_table('input.txt', quotechar='\0', dtype={'item_sku_id': str, 'ext_attr_cd': str, 'ext_attr_value_cd': str})
-    df.columns = ['ProductKey', 'ProductDesc', 'AttributeKey', 'AttributeDesc', 'AttributeValueKey', 'AttributeValueDesc']
-    main(df)
 
 
 
@@ -281,3 +266,23 @@ def makePred(df, unknown_df, colname, known_X, known_y, unknown_X, le, wts):
 
     print('after fill {} left blank in col {}'.format(sum(df[colname] == ''), colname))
     return df
+
+
+
+
+
+if __name__ == '__main__':
+    # get scenario if running this module outside of main.py
+    # scenario = settings.getCurrentScenario()
+
+    # 数据来源：
+    # select sku.item_sku_id, sku_name, ext_attr_cd, ext_attr_name, ext_attr_value_cd, ext_attr_value_name from gdm_m03_item_sku_da sku
+    # join
+    # gdm_m03_sku_ext_attr_da att
+    # on sku.dt='2017-04-01'
+    # and att.dt='2017-04-01'
+    # and sku.item_third_cate_cd = 2676
+    # and sku.item_sku_id=att.item_sku_id;
+    df = pd.read_table('input.txt', quotechar='\0', dtype={'item_sku_id': str, 'ext_attr_cd': str, 'ext_attr_value_cd': str})
+    df.columns = ['ProductKey', 'ProductDesc', 'AttributeKey', 'AttributeDesc', 'AttributeValueKey', 'AttributeValueDesc']
+    main(df)
