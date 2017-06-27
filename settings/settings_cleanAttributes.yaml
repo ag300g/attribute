@@ -1,0 +1,98 @@
+# Define parameters for run
+
+# Test mode
+testMode : 0
+
+# Scenario settings specifying SQL query
+scopeDesc : ''
+
+hierarchyLevel3Keys : [
+12215
+, 798
+, 12347
+, 9706
+, 1389
+, 1390
+, 1391
+, 1392
+, 1394
+, 1396
+, 1401
+, 1404
+, 1405
+, 1406
+, 1407
+, 1408
+, 1409
+, 1410
+, 1416
+, 1419
+, 1420
+, 1421
+, 1422
+, 1423
+, 1424
+, 1425
+, 1426
+, 1428
+, 1429
+, 1662
+, 1663
+, 1667
+, 1669
+, 1670
+, 1671
+, 2562
+, 4699
+, 4987
+, 5150
+, 5164
+, 6739
+, 11922
+, 11923
+, 11924
+, 11925
+, 11928
+, 11929
+, 11930
+, 11932
+, 11970
+, 13544
+, 13546
+, 13547
+, 13548
+, 13549
+, 13550
+, 13551
+]
+
+#preset constants
+MIN_COMPLETION : .05
+MIN_TOKEN_FREQ : 3
+MIN_DISTINCT_CLASS : 2
+MIN_CONF : 0.2
+DICT_WEIGHT: 0.3
+PREF_CUT : 'cut_search'
+N_FOLDS : 5
+SKU_NAME : 'ProductDesc'
+
+CLASSIFIER_NAMES : [
+        '1VR_LSVC',
+        'NaiveBayes',
+        'MLPercep',
+        'R_Forest',
+        'KNN'
+]
+
+#columns to be omitted - common to every file, already filled in
+OMIT_COLS : [
+        'ProductDesc',
+        'cut_search',
+        'cut_full',
+        'cut_part'
+]
+
+#output table settings
+schemaName: 'fact'
+tableNamePrefix: 'predictedAttributes_'
+testSetName: 'test_set.txt'
