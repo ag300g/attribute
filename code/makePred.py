@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-N_FOLDS = 5
+MIN_CONF = 0.3
 
 CLASSIFIERS = [
-    # OneVsOneClassifier(LinearSVC()),
     OneVsRestClassifier(LinearSVC()),
     MultinomialNB(),
     MLPClassifier(early_stopping=False, hidden_layer_sizes=(4, 6), max_iter=500, alpha=1e-4,
@@ -13,7 +12,6 @@ CLASSIFIERS = [
 ]
 
 CLASSIFIER_NAMES = [
-    # '1V1_LSVC',
     '1VR_LSVC',
     'NaiveBayes',
     'MLPercep',

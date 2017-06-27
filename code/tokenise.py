@@ -12,4 +12,3 @@ def tokenise(df, colname=SKU_NAME):
     for cut_name, cut in cuts.items():
         df[cut_name]=df[colname].map(cut)
     return df
-    

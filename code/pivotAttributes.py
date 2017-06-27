@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 import pandas as pd
+MIN_COMPLETION = 0.05
 def pivotAttributes(raw_df, VERBOSE=False, outputExcel=False):
     #specify columns to create mappings for
     mapNames = {'ProductKey': 'ProductDesc', 'AttributeKey': 'AttributeDesc', 'AttributeValueKey': 'AttributeValueDesc'}
@@ -32,7 +33,7 @@ def pivotAttributes(raw_df, VERBOSE=False, outputExcel=False):
     #exclude columns with too much missing information
     skuCount = len(df)
     for col in df:
-        if (float)(sum(df[col].notnull())) / (float)(skuCount) < 0.05:
+        if (float)(sum(df[col].notnull())) / (float)(skuCount) < MIN_COMPLETION:
             del df[col]
             if VERBOSE:
                 print('col %s is skipped' % (col,))
