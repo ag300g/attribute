@@ -18,7 +18,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.svm import LinearSVC
 from tabulate import tabulate
 
-from code.auxiliary import fileManagement as fm
+from auxiliary import fileManagement as fm
 
 # CONSTANTS
 MIN_COMPLETION = .05
@@ -290,11 +290,9 @@ if __name__ == '__main__':
     scenarioSettingsPath = '../settings/settings_fillAttributes.yaml'
 
     settingsScenario = fm.loadSettingsFromYamlFile(scenarioSettingsPath)
-    main(settingsScenario)
-
-
 
     df = pd.read_table('input.txt', quotechar='\0', dtype={'item_sku_id': str, 'ext_attr_cd': str, 'ext_attr_value_cd': str})
     df.columns = ['ProductKey', 'ProductDesc', 'AttributeKey', 'AttributeDesc', 'AttributeValueKey', 'AttributeValueDesc']
+
     settings_cleanAttributes.yaml
-    main(df)
+    main(df,settingsScenario)
