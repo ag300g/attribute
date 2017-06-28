@@ -18,6 +18,10 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.svm import LinearSVC
 from tabulate import tabulate
 
+# from sys import path
+# import os
+# pth=os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath("")))))
+# path.append(pth)
 from auxiliary import fileManagement as fm
 
 # CONSTANTS
@@ -73,7 +77,8 @@ main process
 ======================================================
 '''
 
-def main(df):
+def main(df, Scenario):
+
     ## 第一个模块
     writer = pd.ExcelWriter('outputfor2676.xlsx')
     df, maps = pivotAttributes(df, writer,VERBOSE=True, outputExcel=True)
@@ -294,5 +299,4 @@ if __name__ == '__main__':
     df = pd.read_table('input.txt', quotechar='\0', dtype={'item_sku_id': str, 'ext_attr_cd': str, 'ext_attr_value_cd': str})
     df.columns = ['ProductKey', 'ProductDesc', 'AttributeKey', 'AttributeDesc', 'AttributeValueKey', 'AttributeValueDesc']
 
-    settings_cleanAttributes.yaml
-    main(df,settingsScenario)
+    main(df, settingsScenario)
