@@ -292,11 +292,11 @@ if __name__ == '__main__':
     # and sku.item_third_cate_cd = 2676
     # and sku.item_sku_id=att.item_sku_id;
 
-    scenarioSettingsPath = '../settings/settings_fillAttributes.yaml'
+    # scenarioSettingsPath = '../settings/settings_fillAttributes.yaml'
 
-    settingsScenario = fm.loadSettingsFromYamlFile(scenarioSettingsPath)
+    # settingsScenario = fm.loadSettingsFromYamlFile(scenarioSettingsPath)
 
     df = pd.read_table('input.txt', quotechar='\0', dtype={'item_sku_id': str, 'ext_attr_cd': str, 'ext_attr_value_cd': str})
     df.columns = ['ProductKey', 'ProductDesc', 'AttributeKey', 'AttributeDesc', 'AttributeValueKey', 'AttributeValueDesc']
 
-    main(df, settingsScenario)
+    main(df)
