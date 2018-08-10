@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-## 所用到的包
 import copy
 import jieba
 import numpy as np
@@ -78,14 +77,11 @@ main process
 
 def main(df, Scenario):
 
-    ## 第一个模块
     writer = pd.ExcelWriter('outputfor2676.xlsx')
     df, maps = pivotAttributes(df, writer,VERBOSE=True, outputExcel=True)
 
-    ## 第二个模块
     df = tokenise(df)
 
-    ## 第三个模块
     df = runModels(df)
 
     df.to_excel(writer, 'afterfill')
@@ -157,7 +153,7 @@ def runModels(df):
     for colname in list(df):
         # fails for (nearly) single-valued columns
 
-        # 列中除了None之外值域小于2的列不进行任何操作
+        # do nothing with col values less than 2
         if colname in OMIT_COLS or df[colname].nunique() < MIN_DISTINCT_CAT:
             continue  ## these cols do not apply the following operation
 
