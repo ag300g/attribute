@@ -241,7 +241,7 @@ def makePred(df, unknown_df, colname, known_X, known_y, unknown_X, le, wts):
     # fit each classifier independently
     for i in range(len(classifiers)):
         classifiers[i].fit(known_X, known_y)
-        y = le.inverse_transform(classifiers[i].predict(unknown_X))  # 通过le.inverse_transform可以把y的标签重新变为y的值
+        y = le.inverse_transform(classifiers[i].predict(unknown_X))  # transform from y label to y value
 
         # count up votes from different classifiers
         # if 2 classifier vote for one result then sum the wts of the 2 classifier as the result's weight
